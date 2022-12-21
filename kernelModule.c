@@ -11,7 +11,7 @@ MODULE_LICENSE("GPL");
 
 static int pNum;
 static struct task_struct* pTask;
-static pid* pidStruct;
+static struct pid* pidStruct;
 
 module_param(pNum, int,  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 
