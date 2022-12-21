@@ -18,13 +18,13 @@ module_param(pNum, int,  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 int init_module(void) {
     if ((pidStruct = find_get_pid(pNum))) {
         pr_info("NULL PID found. Terminating.\n");
-        return -1;
+        return 0;
     }
     
 
     if ((pTask = pid_task(pidStruct, PIDTYPE_PID))) {
         pr_info("NULL task struct found. Terminating.\n");
-        return -1;
+        return 0;
     }
 
     pr_info("Process Name: %s\n", pTask -> comm);
@@ -51,5 +51,7 @@ int init_module(void) {
 }
 
 void cleanup_module(void) {
+    free(pTask);
+    free(pidStruct);
     printk(KERN_INFO "Cleaning module has run.\n");
 }
