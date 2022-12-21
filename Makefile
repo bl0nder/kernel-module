@@ -1,4 +1,4 @@
-obj-m += kernelModule.o
+obj-m += myModule.o
 
 PWD := $(CURDIR)
 
