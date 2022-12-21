@@ -7,6 +7,7 @@
 #include <linux/cred.h>
 
 MODULE_AUTHOR("Palaash Goel");
+MODULE_LICENSE("GPL");
 
 static int pNum;
 static struct task_struct* pTask;
