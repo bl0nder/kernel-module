@@ -10,7 +10,7 @@ MODULE_AUTHOR("Palaash Goel");
 
 static int pNum;
 static task_struct* pTask;
-static pid* pidStruct;
+static struct pid* pidStruct;
 
 module_param(pNum, int, 666);
 
