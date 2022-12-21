@@ -7,7 +7,6 @@
 #include <linux/cred.h>
 
 MODULE_AUTHOR("Palaash Goel");
-MODULE_LICENSE("GPL");
 
 static int pNum;
 static struct task_struct* pTask;
@@ -53,6 +52,7 @@ int init_module(void) {
 void cleanup_module() {
     printk(KERN_INFO "Cleaning module has run.\n");
 }
+MODULE_LICENSE("GPL");
 
 
 
