@@ -25,11 +25,11 @@ int init_module(void) {
         return -1;
     }
 
-    printk(KERN_INFO "Process Name: %s\n", pTask -> comm);
-    printk(KERN_INFO "PID: %d\n", pTask -> pid);
-    printk(KERN_INFO "UID: %d\n", pTask -> cred -> uid);
-    printk(KERN_INFO "PGID: %d\n", pTask -> cred -> gid);
-    printk(KERN_INFO "Process Name: %s\n", pTask -> comm);
+    pr_info("Process Name: %s\n", pTask -> comm);
+    pr_info("PID: %d\n", pTask -> pid);
+    pr_info("UID: %d\n", pTask -> cred -> uid);
+    pr_info("PGID: %d\n", pTask -> cred -> gid);
+    pr_info("Process Name: %s\n", pTask -> comm);
     //Getting executable path
     // char* path = malloc(1000);
 
