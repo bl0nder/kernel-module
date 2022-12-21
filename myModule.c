@@ -17,7 +17,7 @@ module_param(pNum, int,  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 
 int init_module(void) {
     if (!(pidStruct = find_get_pid(pNum))) {
-        prink(KERN_INFO "NULL PID found. Terminating.\n");
+        printk(KERN_INFO "NULL PID found. Terminating.\n");
         return 0;
     }
     
@@ -51,5 +51,5 @@ int init_module(void) {
 }
 
 void cleanup_module(void) {
-    printk(KERN_INFO "Module has been removed and cleanup module has run.\n");
+    printk(KERN_INFO "Module has finished. Cleanup module has run.\n");
 }
