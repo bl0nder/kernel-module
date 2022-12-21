@@ -15,7 +15,7 @@ static struct pid* pidStruct;
 
 module_param(pNum, int,  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 
-int __init init_module(void) {
+int init_module(void) {
     if ((pidStruct = find_get_pid(pNum))) {
         pr_info("NULL PID found. Terminating.\n");
         return -1;
@@ -50,9 +50,6 @@ int __init init_module(void) {
     return 0;
 }
 
-void __exit cleanup_module() {
+void exit_module() {
     printk(KERN_INFO "Cleaning module has run.\n");
 }
-
-module_init(init_module);
-module_exit(cleanup_module);
