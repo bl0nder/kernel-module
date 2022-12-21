@@ -1,6 +1,7 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/pid.h>
+#include <linux/pid_namespace.h>
 #include <linux/moduleparam.h>
 #include <linux/sched.h>
 #include <linux/cred.h>
