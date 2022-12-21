@@ -15,13 +15,13 @@ module_param(pNum, int, 666);
 
 int init_module(void) {
     if ((pidStruct = find_get_pid(pNum)) == NULL) {
-        printk(KERN_ALERT "NULL PID found. Terminating.\n");
+        pr_info("NULL PID found. Terminating.\n");
         return -1;
     }
     
 
     if ((pTask = pid_task(pidStruct, PIDTYPE_PID)) == NULL) {
-        printk(KERN_ALERT "NULL task struct found. Terminating.\n");
+        pr_info("NULL task struct found. Terminating.\n");
         return -1;
     }
 
