@@ -32,7 +32,9 @@ int init_module(void) {
     printk(KERN_INFO "UID: %d\n", pTask -> cred -> uid);
     printk(KERN_INFO "PGID: %d\n", pTask -> cred -> gid);
     printk(KERN_INFO "Command Path: %s\n", pTask -> comm);
-    //Getting executable path
+    
+    
+    //Getting executable path - This was not working for some reason which is why I resorted to simply using pTask -> comm as the command path
     // char* path = malloc(1000);
 
     // struct mm_struct* mm = pTask -> mm;
@@ -47,6 +49,8 @@ int init_module(void) {
     // } 
 
     // printk(KERN_INFO "Command path: %s\n", path);
+
+    
     return 0;
 }
 
