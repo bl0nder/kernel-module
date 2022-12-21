@@ -53,6 +53,3 @@ static int init_module(void) {
 static void cleanup_module() {
     printk(KERN_INFO "Cleaning module has run.\n");
 }
-
-module_init(init_module);
-module_exit(cleanup_module);
