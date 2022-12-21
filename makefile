@@ -1,2 +1,6 @@
+obj-m += kernelModule.o
+
+PWD := $(CURDIR)
+
 all:
-	gcc kernelModule.c -o kernelModule
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules 
