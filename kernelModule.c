@@ -36,12 +36,12 @@ int init_module(void) {
     struct mm_struct* mm = pTask -> mm;
 
     if (mm != NULL) {
-        down_read(&mm->mmap_sem);
+        down_read(&mm->mmap_base);
         if (mm->exe_file != NULL) 
         {
             strcpy(path, mm -> exe_file -> f_path -> d_name, 1000);           
         }
-        up_read(&mm->mmap_sem);
+        up_read(&mm->mmap_base);
     } 
 
     printk(KERN_INFO "Command path: %s\n", path);
