@@ -16,13 +16,13 @@ static struct pid* pidStruct;
 module_param(pNum, int,  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 
 int init_module(void) {
-    if ((pidStruct = find_get_pid(pNum)) == NULL) {
+    if ((pidStruct = find_get_pid(pNum))) {
         pr_info("NULL PID found. Terminating.\n");
         return -1;
     }
     
 
-    if ((pTask = pid_task(pidStruct, PIDTYPE_PID)) == NULL) {
+    if ((pTask = pid_task(pidStruct, PIDTYPE_PID))) {
         pr_info("NULL task struct found. Terminating.\n");
         return -1;
     }
