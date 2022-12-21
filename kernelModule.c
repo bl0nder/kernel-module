@@ -7,6 +7,7 @@
 #include <linux/cred.h>
 
 MODULE_AUTHOR("Palaash Goel");
+MODULE_LICENSE("GPL");
 
 static int pNum;
 static struct task_struct* pTask;
@@ -17,20 +18,20 @@ module_param(pNum, int,  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 int init_module(void) {
     if ((pidStruct = find_get_pid(pNum)) == NULL) {
         pr_info("NULL PID found. Terminating.\n");
-        return 0;
+        return -1;
     }
     
 
     if ((pTask = pid_task(pidStruct, PIDTYPE_PID)) == NULL) {
         pr_info("NULL task struct found. Terminating.\n");
-        return 0;
+        return -1;
     }
 
     pr_info("Process Name: %s\n", pTask -> comm);
     pr_info("PID: %d\n", pTask -> pid);
     pr_info("UID: %d\n", pTask -> cred -> uid);
     pr_info("PGID: %d\n", pTask -> cred -> gid);
-    pr_info("Process Name: %s\n", pTask -> comm);
+    pr_info("Command Path: %s\n", pTask -> comm);
     //Getting executable path
     // char* path = malloc(1000);
 
@@ -52,7 +53,6 @@ int init_module(void) {
 void cleanup_module() {
     printk(KERN_INFO "Cleaning module has run.\n");
 }
-MODULE_LICENSE("GPL");
 
 
 
