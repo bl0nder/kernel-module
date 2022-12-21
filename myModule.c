@@ -1,7 +1,6 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/pid.h>
-#include <stdlib.h>
 #include <linux/pid_namespace.h>
 #include <linux/moduleparam.h>
 #include <linux/sched.h>
@@ -52,7 +51,5 @@ int init_module(void) {
 }
 
 void cleanup_module(void) {
-    free(pTask);
-    free(pidStruct);
     printk(KERN_INFO "Cleaning module has run.\n");
 }
