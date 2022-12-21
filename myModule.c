@@ -50,6 +50,6 @@ int init_module(void) {
     return 0;
 }
 
-void cleanup_module() {
+void cleanup_module(void) {
     printk(KERN_INFO "Cleaning module has run.\n");
 }
