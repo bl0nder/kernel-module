@@ -12,7 +12,7 @@ static int pNum;
 static struct task_struct* pTask;
 static struct pid* pidStruct;
 
-module_param(pNum, int, 666);
+module_param(pNum, int,  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 
 int init_module(void) {
     if ((pidStruct = find_get_pid(pNum)) == NULL) {
